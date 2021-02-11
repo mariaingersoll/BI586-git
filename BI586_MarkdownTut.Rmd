@@ -1,0 +1,97 @@
+---
+title: "BI586_MarkdownTut"
+author: "James Fifer, Sarah Davies"
+date: "February 9, 2021"
+output: "html_document"
+---
+
+## R Markdown
+
+This is an R Markdown document, a plain text file that has the extension .Rmd. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see the following links: <http://rmarkdown.rstudio.com>
+<https://bookdown.org/yihui/rmarkdown>
+<https://rmarkdown.rstudio.com/lesson-15.html>
+<https://rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf>
+<https://holtzy.github.io/Pimp-my-rmd/>
+<https://github.com/rstudio/rticles/tree/master/inst/rmarkdown/templates>
+To create a new Rmd file from Rstudo go to File -> New File -> R Markdown
+
+#Question 1
+**Create a new Rmd file and name it BI586_MarkdownTut plus your initials (e.g. BI586_MarkdownTut_JF)**
+**You will answer all the tutorial questions & take notes in your newly created Rmd file**
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.Go ahead and click **Knit** now and then on the new screen that pops up click **open in browser** you can now follow the tutorial using the html for better readability and refer back to the .Rmd
+file in Rstudio for format checks. 
+
+There are three basic components of an R Markdown document: the metadata, text, and code. The metadata is written between the pair of three dashes ---. 
+
+The syntax for the metadata is YAML (https://en.wikipedia.org/wiki/YAML), so sometimes it is also called the YAML metadata or the YAML frontmatter. See <https://bookdown.org/yihui/bookdown/r-markdown.html> for a few simple examples that show the YAML syntax. 
+Right now our metadata is saying we want an **html_document** for our output. There are lots of different output formats, see <https://bookdown.org/yihui/bookdown/r-markdown.html> again for all the different formats. Most of these require installation of large packages which will require a computer restart, feel free to check them out on your own time and ask us for help if you run into trouble with the installations. 
+In the meantime a word document shouldnt require additional installation
+
+#Question 2 
+**Change the output to a word document**
+
+The text (the component you are reading right now) syntax is Markdown check out this link for a review on all the different formats
+<https://bookdown.org/yihui/rmarkdown/markdown-syntax.html>
+
+#Question 3
+**Create a hyperlink HERE that will send the user to the above bookdown.org site**
+
+A code chunk starts with three backticks like ```{r} where r indicates the language name and ends with three backticks ```
+
+Below is a code chunk:
+```{r}
+2+2+2
+answer=2+2+2
+```
+**Note** You dont need to click **Knit** just to see the output, instead you can run the above code chunk the following ways so you can immediately see the output in rmarkdown:
+  
+  - when in the code chunk using *ctrl+enter* or *command+enter* on a mac
+  - clicking run in the top right corner of Rstudio
+  - Clicking the green play button on the top right corner of the code chunk
+
+#Question 4 
+**Make sure you are succesfully able to do all three above methods**
+
+You can also do inline code using a pair of backticks (e.g. did you know 2+2+2+=`r answer`?)
+
+You can insert an R code chunk either using the RStudio toolbar (the Insert button) or the keyboard shortcut `Ctrl + Alt + I` (`Cmd + Option + I` on macOS).
+
+There are a lot of things you can do in a code chunk: you can produce text output, tables, or graphics. You have fine control over all these output via chunk options, which can be provided inside the curly braces (between ```{r and }). For example, you can choose hide text output via the chunk option results = 'hide', or set the figure height to 4 inches via fig.height = 4. Chunk options are separated by commas, e.g.,
+
+```{r, chunk-label, result='hide'}
+2+2+2
+answer=2+2+2
+```
+
+There are a large number of chunk options in knitr documented at https://yihui.name/knitr/options
+
+#Question 5
+**Create a code chunk that will not show the code in your knitted html (this is nice if someone just wants the output
+and doesn't care about the code) Use the above link to figure out how to do this**
+
+#Question 6
+**Create a code chunk that will not actually run the code when you *knit* your markdown file, this is nice if for example the code isn't working but you want to show someone what you did, or maybe the code requires a input file that only you have access to and you are sharing your markdown file and don't want to give them an error**
+
+
+
+## Including Plots
+You can embed plots into your rmarkdown pretty easily. You can also add a figure caption using fig.cap in the chunk options
+
+```{r pressure, fig.cap= "enter caption here"}
+plot(pressure)
+```
+
+If you want to include a graphic from your computer you can use the knitr::include_graphics() function 
+
+```{r, fig.cap="caption", eval=FALSE}
+knitr::include_graphics('yourimagename.png')
+```
+
+#Question 7 
+**Add any png to your markdown html**
+
+#Question 8 Converting your R lab to an rmarkdown file
+**Take the code from your R lab last week (starting at Question 9 until the plotting section) and convert it to an rmarkdown format. This should include both my questions/notes PLUS your answers. Format it in a way so when you knit it into an html it is very readible imagine you were making an R walkthrough for someone else. (Use headers, get rid of #s, break code into chunks, limit unnecessary code output, supress warnings etc). Check out the links at the beginning of this tutorial for other ways to prettify your rmarkdown!**
+
+##Make sure you send both your .Rmd file AND the html to me (jfifer@bu.edu)##
