@@ -108,6 +108,6 @@ knitr::include_graphics('IMG_0563.jpg')
 #.jpeg or .jpg works too
 
 #Question 8 Converting your R lab to an rmarkdown file
-**Take the code from your R lab last week (starting at Question 9 until the plotting section) and convert it to an rmarkdown format. This should include both my questions/notes PLUS your answers. Format it in a way so when you knit it into an html it is very readible imagine you were making an R walkthrough for someone else. (Use headers, get rid of #s, break code into chunks, limit unnecessary code output, supress warnings etc). Check out the links at the beginning of this tutorial for other ways to prettify your rmarkdown!**
+**Take the code from your R lab last week (starting at Question 9 until the plotting section) and convert it to an rmarkdown format. This should include both my questions/notes PLUS your answers. Format it in a way so when you knit it into an html it is very readible - imagine you were making an R walkthrough for someone else. (Use headers, get rid of #s, break code into chunks, limit unnecessary code output, supress warnings etc). Check out the links at the beginning of this tutorial for other ways to prettify your rmarkdown!**
 
 ##Make sure you send both your .Rmd file AND the html to me (jfifer@bu.edu)##
