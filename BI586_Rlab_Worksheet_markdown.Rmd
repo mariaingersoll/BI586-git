@@ -1,6 +1,6 @@
 ---
 title: "BI586_Rlab_Worksheet_mingers"
-output: html_document
+output: "word_document"
 ---
 ```{r setup, include=FALSE, warning=FALSE, message=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
