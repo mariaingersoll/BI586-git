@@ -1,0 +1,90 @@
+---
+title: "BI586_Rlab_Worksheet_mingers"
+output: html_document
+---
+```{r setup, include=FALSE, warning=FALSE, message=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+```
+
+- Load the data file you will be using for the analysis and give it a name so as to access it more easily
+- Also, change the name of column 21 to "Average WD"
+```{r}
+Data=read.csv(file = "Wasting_Data.csv",skip = 1, stringsAsFactors = T)
+colnames(Data)[21] = "Average.WD"
+```
+
+
+Problem 9: Write code that will print the column name for column 3 and the rowname for row 4
+```{r}
+colnames(Data)[3]
+rownames(Data)[4]
+col3 = colnames(Data)[3]
+row4 = rownames(Data)[4]
+col3_row4 = c(col3 , row4)
+col3_row4
+```
+
+
+- Sometimes you will want to subset a dataframe to include only specific columns or only certain values 
+- In our wasting data file we have a column called Transect. 
+- We can view the values of this column by simply clicking on the variable "Data" in our global environment OR we can have R print out all the values of this column
+- If you don't want R to barf up all the values but you are interested in how many unique values there are for this column, you can look at this column's levels
+
+Problem 10: How many levels does the column "Transect" have?
+```{r}
+levels(Data$Transect)
+```
+- This function shows us that there are four levels in the column transect
+
+- Lets say we want to create a dataframe that only has data for transect A, we can do this a few different ways
+- One way is to use the filter function from the package dplyr
+```{r}
+TransectA=filter(Data, Transect == "A")
+head(TransectA)
+```
+
+
+Problem 11: How many rows are in your new dataframe TransectA?
+```{r}
+nrow(TransectA)
+```
+- There are 10 rows in TransectA
+
+
+Problem 12: Create a dataframe that consistes of only data from Transect A AND Transect B. How many rows are in this new dataframe?
+```{r}
+TransectAB = filter(Data, Transect == "A" | Transect =="B")
+nrow(TransectAB)
+```
+- There are 20 rows in TransectAB
+
+- Maybe we don't care about most of these columns and want to just work with the first three
+```{r}
+InfoTransectA=TransectA[,1:3]
+head(InfoTransectA)
+```
+
+
+How do we save stuff that we can create in R?
+
+- Even though you can save your script with a simple ctrl+S, this is just saving the instructions
+- Sometimes we want to save an output so we don't have to run through our whole code again to look at it.
+- One way of doing this is saving EVERYTHING in your global environment by using the following:
+```{r}
+save.image(file="filename.RData")
+```
+
+- Then the function load can be used to re-load your saved global environment
+```{r}
+load(file="filename.RData")
+```
+
+- You can also save files as .csv or a space separated file using the following functions:
+```{r}
+write.csv(InfoTransectA, file="InfoTranectA.csv")
+write.table(InfoTransectA, file="InfoTransectA.txt",sep=" ")
+write.table(InfoTransectA, file="InfoTransectA.tab", sep="\t")
+```
+
+
